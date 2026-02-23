@@ -1,0 +1,44 @@
+name: "Run `nox` sessions"
+
+on: [pull_request]
+
+jobs:
+  nox:
+    name: ${{ matrix.os }} / ${{ matrix.python }} / ${{ matrix.nox_session }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ["3.9", "3.10"]
+        nox_session: ["docs", "pre-commit", "testing"]
+        exclude:
+          - os: macos-latest
+            nox_session: "docs"
+          - os: macos-latest
+            nox_session: "pre-commit"
+          - python: "3.10"
+            nox_session: "docs"
+          - python: "3.10"
+            nox_session: "pre-commit"
+      fail-fast: true
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout the revision
+        uses: actions/checkout@v4
+
+      - name: Install Poetry
+        id: install-poetry
+        uses: ./.github/actions/install-poetry
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Install dependencies
+        run: poetry install --with=ci-cd --sync --no-ansi --no-root
+        shell: bash
+
+      - name: Run `nox` session `${{ matrix.nox_session }}`
+        run: poetry run nox --force-python python --session ${{ matrix.nox_session }}
+        shell: bash

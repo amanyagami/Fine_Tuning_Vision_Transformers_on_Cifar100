@@ -1,0 +1,108 @@
+[tool.poetry]
+name = "Fine_Tuning_Vision_Transformers_Cifar100"
+version = "0.1.0"
+description = "Comparative fine-tuning of Swin-Tiny, ViT-Base, ConvNeXtV2-Base, and MobileViT-V2 on CIFAR-100 to analyze transfer learning performance across transformer and hybrid vision architectures."
+license = "MIT"
+authors = ["Aman Singh <2amansingh2@gmail.com>"]
+maintainers = ["Aman Singh <2amansingh2@gmail.com>"]
+readme = "README.md"
+homepage = "https://amanyagami.github.io/Fine_Tuning_Vision_Transformers_Cifar100"
+repository = "https://github.com/amanyagami/Fine_Tuning_Vision_Transformers_Cifar100"
+documentation = "https://amanyagami.github.io/Fine_Tuning_Vision_Transformers_Cifar100"
+keywords = []
+classifiers = []
+packages = [
+    {include = "fine_tuning_vision_transformers_cifar100", from = "src"},
+]
+include = []
+exclude = []
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.13"
+
+[tool.poetry.group.ci-cd]
+optional = true
+
+[tool.poetry.group.ci-cd.dependencies]
+nox = "^2023.4.22"
+
+[tool.poetry.group.cookiecutter]
+optional = true
+
+[tool.poetry.group.cookiecutter.dependencies]
+cookiecutter = "^2.4.0"
+cruft = {extras = ["pyproject"], version = "^2.15.0"}
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+myst-parser = {extras = ["linkify"], version = "^2.0.0"}
+pydata-sphinx-theme = "^0.14.1"
+Sphinx = "^7.2.6"
+sphinx-copybutton = "^0.5.2"
+
+[tool.poetry.group.notebook]
+optional = true
+
+[tool.poetry.group.notebook.dependencies]
+jupyterlab = "^4.0.6"
+
+[tool.poetry.group.pre-commit]
+optional = true
+
+[tool.poetry.group.pre-commit.dependencies]
+black = "^24.3.0"
+detect-secrets = "^1.4.0"
+flake8 = "^6.1.0"
+flake8-bandit = "^4.1.1"
+flake8-bugbear = "^23.9.16"
+flake8-docstrings = "^1.7.0"
+flake8-rst-docstrings = "^0.3.0"
+isort = "^5.12.0"
+mypy = "^1.5.1"
+nbqa = "^1.7.0"
+nbstripout = "^0.6.1"
+pre-commit = "^3.4.0"
+pre-commit-hooks = "^4.4.0"
+safety = "^2.3.4"
+
+[tool.poetry.group.testing]
+optional = true
+
+[tool.poetry.group.testing.dependencies]
+coverage = {extras = ["toml"], version = "^7.3.2"}
+pytest = "^7.4.2"
+pytest-cookies = "^0.7.0"
+pytest-cov = "^4.1.0"
+pytest-mock = "^3.11.1"
+pytest-xdist = "^3.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.report]
+exclude_lines = ["if __name__ == .__main__.:"]
+show_missing = true
+
+[tool.coverage.run]
+omit = ["tests/*"]
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+strict = true
+pretty = true
+show_column_numbers = true
+show_error_codes = true
+show_error_context = true
+
+[tool.pytest.ini_options]
+addopts = ["-vv", "--doctest-modules"]
+doctest_optionflags = "NORMALIZE_WHITESPACE"
+testpaths = ["./tests"]

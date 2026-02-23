@@ -1,0 +1,90 @@
+"""Configuration file for the Sphinx documentation builder.
+
+For the full list of built-in configuration values, see the documentation:
+https://www.sphinx-doc.org/en/master/usage/configuration.html
+
+"""
+
+import importlib.metadata
+
+# Project information
+project = "Finetuning_Tranformers_Cifar100"
+copyright = "2026, Aman Singh"
+author = "Aman Singh"
+release = importlib.metadata.version("fine_tuning_vision_transformers_cifar100")
+
+# Sphinx extensions
+extensions = [
+    "myst_parser",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosectionlabel",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.githubpages",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.napoleon",
+    "sphinx_copybutton",
+]
+
+# Templates path
+templates_path = ["_templates"]
+
+# Patterns to exclude, relative to the source directory
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+
+# HTML theme
+html_theme = "pydata_sphinx_theme"
+
+# Path to any static elements
+html_static_path = ["_static"]
+
+# HTML context information for the theme
+html_context = {
+    "github_repo": "Fine_Tuning_Vision_Transformers_Cifar100",
+    "github_user": "amanyagami",
+    "github_version": "main",
+    "doc_path": "docs",
+}
+
+# HTML theme options
+html_theme_options = {
+    "collapse_navigation": True,
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://www.github.com/amanyagami/Fine_Tuning_Vision_Transformers_Cifar100",  # noqa: B950
+            "icon": "fab fa-github-square",
+        },
+    ],
+    "navigation_depth": 2,
+    "use_edit_page_button": True,
+}
+
+# `sphinx.ext.autosectionlabel` configurations
+autosectionlabel_prefix_document = True
+
+# `sphinx.ext.autosummary` configurations
+autosummary_generate = True
+
+# `sphinx.builders.linkcheck` configurations
+linkcheck_ignore = [
+    r"^https://amanyagami.github.io/Fine_Tuning_Vision_Transformers_Cifar100$",  # noqa: B950
+    r"^https://amanyagami.github.io/Fine_Tuning_Vision_Transformers_Cifar100/",  # noqa: B950
+]
+
+# `myst_parser` configurations
+myst_heading_anchors = 6
+myst_enable_extensions = [
+    "amsmath",
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "fieldlist",
+    "html_admonition",
+    "html_image",
+    "linkify",
+    "replacements",
+    "smartquotes",
+    "strikethrough",
+    "substitution",
+    "tasklist",
+]
