@@ -26,6 +26,22 @@ This repository provides clean, reproducible experiments for fine-tuning modern 
 ✔ Visual training results  
 
 ---
+## 📊 Model Validation Results
+
+### 🔎 Summary
+
+| Model                          | Peak Validation Accuracy (%) | Epochs to Peak Performance |
+| ------------------------------ | ---------------------------: | -------------------------: |
+| `vit_base_patch16_224`         |                    **92.55** |                         10 |
+| `swin_tiny_patch4_window7_224` |                        86.38 |                         14 |
+| `mobilevitv2_150`              |                        80.02 |                         48 |
+| `tf_efficientnetv2_l`          |                        73.05 |                         30 |
+
+---
+
+### 🏆 Top Performing Model
+
+**`vit_base_patch16_224`** achieved the highest peak validation accuracy of **92.55%**, reaching optimal performance at epoch **10**.
 
 ## ⚡ 30-Second Setup
 
