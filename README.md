@@ -1,4 +1,4 @@
-````markdown
+ 
 <p align="center">
   <h1>🧠 Fine-Tuning Vision Models on CIFAR-100</h1>
   <p>Modern transfer learning experiments with ViT, Swin, EfficientNet, ConvNeXt & more.</p>
