@@ -111,7 +111,7 @@ All models are initialized with `pretrained=True` and adapted to 100 classes.
 <br/>
 
 <p align="center">
-  <img src="gifs/tf_efficientnetv2_l_training.gif" width="240"/>
+  <img src="gifs/tf_efficientnetv2_l__training.gif" width="240"/>
   <img src="gifs/mobilevitv2_150__training.gif" width="240"/>
 </p>
 
