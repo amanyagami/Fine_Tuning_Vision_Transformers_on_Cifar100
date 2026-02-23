@@ -89,7 +89,6 @@ tensorboard --logdir runs --port 6006
 | ViT (Vision Transformer) | timm    |
 | Swin-T                   | timm    |
 | EfficientNetV2-L         | timm    |
-| ConvNeXt                 | timm    |
 | MobileViT                | timm    |
 
 All models are initialized with `pretrained=True` and adapted to 100 classes.
